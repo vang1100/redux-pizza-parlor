@@ -1,9 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
-const store = createStore(
-  combineReducers({
-   
 const orderList = (state = [], action) => {
   if (action.type === 'ADD_PIZZA') {
     let newOrderList = action.payload;
@@ -12,9 +9,18 @@ const orderList = (state = [], action) => {
   return state;
 }
 
+const customerInformation = (state = '', action) => {
+  if (action.type === 'ADD_CUSTOMER') {
+    return action.payload;
+  }
+
+  return state;
+}
+
 const store = createStore(
   combineReducers({
     orderList, 
+    customerInformation,
   }),
   applyMiddleware(logger),
 );
