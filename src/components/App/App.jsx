@@ -70,8 +70,6 @@ const addCustomer = event => {
 
       ))}
 
-  </ul> */}
-
     </div>
   );
 }
